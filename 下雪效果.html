@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>下雪特效</title>
+	<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body{
+			background-color: #323975;
+			width: 100vw;
+			overflow: hidden;
+		}
+		.fa-snowflake{
+			position: absolute;
+			top: 0;
+			transform: translateY(-100%);
+			color: white;
+			animation: fall linear;
+		}
+		@keyframes fall{
+			to{
+				transform: translateY(calc(100vh + 100%));
+			}
+		}
+	</style>
+</head>
+
+<body>
+</body>
+	<script>
+		setInterval(creatsnow,50);
+		function creatsnow(){
+			var snow = document.createElement('i');
+			snow.classList.add('fa');
+			snow.classList.add('fa-snowflake');
+			snow.style.animationDuration = Math.random()*3+2 + 's';
+			snow.style.left = Math.random()*window.innerWidth + 'px';
+			snow.style.opacity = Math.random()*0.7+0.3;
+			snow.style.fontSize = Math.random()*10+20 + 'px';
+			document.body.appendChild(snow);
+			setTimeout(() => {
+				snow.remove();
+			},5000)
+		}
+	</script>
+</html>
