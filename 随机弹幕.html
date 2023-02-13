@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>随机弹幕</title>
+	<style>
+		body{
+			overflow: hidden;
+		}
+		span{
+			position: absolute;
+			left: 0;
+			transform: translateX(-100%);
+			background: skyblue;
+			padding: 5px 20px;
+			border-radius: 5px;
+			animation: dh linear;
+		}
+		@keyframes dh{
+			to{
+				transform: translateX(calc(100vw + 100%));
+			}
+		}
+	</style>
+</head>
+
+<body>
+	
+</body>
+	<script>
+		var array = ['毕业的号角已吹响，带着你们的祝福，我们上路，不管前方有多少的风雨，心不会再孤独。','日月匆匆过，金榜把名挂','祝你一帆风顺','祝你心想事成'];
+		setInterval(create,200);
+		function create(){
+			var span = document.createElement('span');
+			var time = Math.random()*5+8;
+			span.innerHTML = array[Math.floor(Math.random()*(array.length))];
+			span.style.animationDuration = time + 's';
+			span.style.top = Math.random()*window.innerHeight + 'px';
+			document.body.appendChild(span);
+			setTimeout(() => {
+				span.remove();
+			},time*1000);
+		};
+	</script>
+</html>
